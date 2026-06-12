@@ -260,8 +260,7 @@ const LeetCodeAnalytics = () => {
     hardQuestions = 942,
     ranking,
     contributionPoint,
-    submissionCalendar,
-    recentSubmissions = []
+    submissionCalendar
   } = profileData;
 
   const totalEasy = profileData.totalEasy || easyQuestions;
@@ -545,36 +544,6 @@ const LeetCodeAnalytics = () => {
             </div>
           </div>
 
-          {/* Recent Submissions */}
-          <div className="leetcode-card glass-card span-col-full reveal-up">
-            <h3 className="card-heading"><i className="fa-solid fa-code-history card-icon"></i> Recent Submissions</h3>
-            <div className="submissions-list">
-              {recentSubmissions.slice(0, 5).map((sub, idx) => (
-                <div key={idx} className="submission-item">
-                  <div className="sub-meta-left">
-                    <span className="sub-title">{sub.title}</span>
-                    <span className="sub-lang">{sub.lang.toUpperCase()}</span>
-                  </div>
-                  <div className="sub-meta-right">
-                    <span 
-                      className="sub-status-badge"
-                      style={{
-                        backgroundColor: getSubStatusColor(sub.statusDisplay),
-                        color: getSubStatusTextColor(sub.statusDisplay),
-                        boxShadow: sub.statusDisplay === 'Accepted' ? '0 0 10px rgba(255, 215, 0, 0.05)' : 'none'
-                      }}
-                    >
-                      {sub.statusDisplay}
-                    </span>
-                    <span className="sub-time">{formatTimeAgo(sub.timestamp)}</span>
-                  </div>
-                </div>
-              ))}
-              {recentSubmissions.length === 0 && (
-                <div className="no-submissions">No recent submissions found.</div>
-              )}
-            </div>
-          </div>
 
         </div>
 
